@@ -4,14 +4,13 @@
 * 第三点
 * 第四点
 
-```java
+```Java
 public FileMeta saveFile(String uid, String fhash, String fname, String ftype, byte[] fdata) throws BizException {
     ParamsChecker.checkNotBlank(uid, "no uid");
     ParamsChecker.checkNotBlank(fhash, "no fhash");
     ParamsChecker.checkNotBlank(fname, "no fname");
     ParamsChecker.checkNotBlank(ftype, "no ftype");
     ParamsChecker.checkNotEmpty(fdata, "no fdata");
-
     // check fname
     String extName = Utils.getFileExtName(fname);
     BizResult.ensureTrue(extName.equalsIgnoreCase(ftype), Errors.ERR_SYS_PARAMS_WRONG, "fname wrong, conflict of ftype");
